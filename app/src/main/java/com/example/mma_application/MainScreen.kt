@@ -1,9 +1,9 @@
 package com.example.mma_application
 
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Badge
@@ -19,15 +19,16 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
 
-
     val navItemList = listOf(
-        BottomNavItems("Home", Icons.Default.Home),
-        BottomNavItems("News", Icons.Default.Notifications),
-        BottomNavItems("Fighters", Icons.Default.Settings),
+        BottomNavItems("Home", R.drawable.home,0),
+        BottomNavItems("News", R.drawable.news,5),
+        BottomNavItems("Fighters", R.drawable.mma_fighters,0),
     )
 
     var selectedIndex by remember {
@@ -37,7 +38,8 @@ fun MainScreen(modifier: Modifier = Modifier) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
-            NavigationBar {
+            NavigationBar (modifier = Modifier.height(110.dp)) {
+
                 navItemList.forEachIndexed { index, navItem ->
                     NavigationBarItem(
                         selected =  selectedIndex == index ,
@@ -51,7 +53,10 @@ fun MainScreen(modifier: Modifier = Modifier) {
                                         Text(text = navItem.badgeCount.toString())
                                     }
                             }) {
-                                Icon(imageVector = navItem.icon, contentDescription = "Icon")
+                                Icon(
+                                    painter = painterResource(id = navItem.icon),
+                                    contentDescription = "Icon"
+                                )
                             }
 
                         },
