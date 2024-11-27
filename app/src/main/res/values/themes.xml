@@ -3,6 +3,6 @@
 
     <style name="Theme.MMA_application" parent="android:Theme.Material.Light.NoActionBar" />
     <style name="Theme.SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/FNCSplashScreen</item>
+        <item name="android:windowBackground">@drawable/fnc</item>
     </style>
 </resources>
