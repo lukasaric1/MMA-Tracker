@@ -19,6 +19,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 
@@ -26,9 +27,10 @@ import androidx.compose.ui.unit.dp
 fun MainScreen(modifier: Modifier = Modifier) {
 
     val navItemList = listOf(
-        BottomNavItems("Home", R.drawable.home,0),
-        BottomNavItems("News", R.drawable.news,5),
-        BottomNavItems("Fighters", R.drawable.mma_fighters,0),
+        BottomNavItems("EVENTS", R.drawable.event,0),
+        BottomNavItems("RESULTS", R.drawable.result,0),
+        BottomNavItems("NEWS", R.drawable.news,5),
+        BottomNavItems("FIGHTERS", R.drawable.mma_fighters,0),
     )
 
     var selectedIndex by remember {
@@ -38,7 +40,8 @@ fun MainScreen(modifier: Modifier = Modifier) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
-            NavigationBar (modifier = Modifier.height(110.dp)) {
+            NavigationBar (modifier = Modifier.height(110.dp),
+                containerColor = colorResource(id = R.color.bottom_nav_bar_color)) {
 
                 navItemList.forEachIndexed { index, navItem ->
                     NavigationBarItem(
@@ -55,13 +58,16 @@ fun MainScreen(modifier: Modifier = Modifier) {
                             }) {
                                 Icon(
                                     painter = painterResource(id = navItem.icon),
-                                    contentDescription = "Icon"
+                                    contentDescription = "Icon",
+                                    tint = androidx.compose.ui.graphics.Color.White
                                 )
                             }
 
                         },
                         label = {
-                            Text(text = navItem.label)
+                            Text (
+                                text = navItem.label,
+                                color = androidx.compose.ui.graphics.Color.White)
                         }
                     )
                 }
@@ -77,9 +83,10 @@ fun MainScreen(modifier: Modifier = Modifier) {
 @Composable
 fun ContentScreen(modifier: Modifier = Modifier, selectedIndex : Int) {
     when(selectedIndex){
-        0-> HomePage()
-        1-> NewsPage()
-        2-> FightersPage()
+        0-> EventsPage()
+        1-> ResultsPage()
+        2-> NewsPage()
+        3-> FightersPage()
     }
 }
 
