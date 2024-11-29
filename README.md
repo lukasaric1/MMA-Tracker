@@ -1,4 +1,5 @@
-MMA Tracker 🎯
+# MMA Tracker 🎯
+
 MMA Tracker is an Android application designed for fans of mixed martial arts (MMA). It provides users with comprehensive details about fighters, upcoming events, fight results, and the latest MMA news. The app aims to be the go-to hub for all MMA-related updates and information.
 
 Key Features
