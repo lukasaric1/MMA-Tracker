@@ -11,6 +11,7 @@ import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -68,7 +69,11 @@ fun MainScreen(modifier: Modifier = Modifier) {
                             Text (
                                 text = navItem.label,
                                 color = androidx.compose.ui.graphics.Color.White)
-                        }
+                        },
+                        colors = NavigationBarItemDefaults.colors(
+
+                            indicatorColor = colorResource(id = R.color.black) // Ovo menja boju indikatora iza ikone
+                        )
                     )
                 }
             }

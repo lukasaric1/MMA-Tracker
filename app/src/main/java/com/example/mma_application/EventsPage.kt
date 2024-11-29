@@ -17,7 +17,7 @@ fun EventsPage(modifier: Modifier = Modifier) {
     Column(
     modifier = modifier
     .fillMaxSize()
-    .background(Color(0xFF1976D2)),
+    .background(Color(0xFF170202)),
     verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally
     ) {
