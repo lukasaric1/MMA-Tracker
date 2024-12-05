@@ -15,9 +15,10 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 fun EventsPage(
-    modifier: Modifier = Modifier,
-    viewModel: EventsViewModel = viewModel // ViewModel za API logiku
+    modifier: Modifier = Modifier
 ) {
+    val repository = remember { EventsRepository() }
+    val viewModel: EventsViewModel = viewModel(factory = EventsViewModelFactory(repository))
     val events by viewModel.events.collectAsState() // Dohvaćanje stanja događaja
     val error by viewModel.error.collectAsState()
 

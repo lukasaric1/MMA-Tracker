@@ -6,7 +6,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class EventsViewModel : ViewModel() {
+class EventsViewModel(private val repository: EventsRepository) : ViewModel() {
+
     private val _events = MutableStateFlow<List<Event>>(emptyList())
     val events: StateFlow<List<Event>> = _events
 
@@ -20,12 +21,9 @@ class EventsViewModel : ViewModel() {
     private fun fetchEvents() {
         viewModelScope.launch {
             try {
-                val response = MMAorgAPI.api.getTournamentSchedule(19906, 15, 9, 2024)
-                if (response.isSuccessful) {
-                    _events.value = response.body()?.events ?: emptyList()
-                } else {
-                    _error.value = "Pogreška: ${response.code()}"
-                }
+                // Use the repository to fetch events
+                val events = repository.getEvents()
+                _events.value = events
             } catch (e: Exception) {
                 _error.value = "Greška: ${e.message}"
             }
