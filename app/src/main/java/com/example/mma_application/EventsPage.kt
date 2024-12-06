@@ -48,8 +48,8 @@ fun EventsPage(
             ) {
                 events.forEach { event ->
                     Text(
-                        text = "Naziv: ${event.title}, Lokacija: ${event.location}",
-                        fontSize = 18.sp,
+                        text = event.tournament.name,
+                        fontSize = 25.sp,
                         color = Color.White
                     )
                 }

@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.mma_application"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.mma_application"
@@ -56,7 +56,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     // Lifecycle and Coroutines
-    implementation(libs.lifecycle.lifecycle.viewmodel.compose)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.runtime.livedata)
 

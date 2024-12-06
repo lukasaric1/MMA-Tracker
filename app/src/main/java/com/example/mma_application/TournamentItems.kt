@@ -11,6 +11,13 @@ data class Event(
     val eventId: Int,
     val title: String,
     val date: String,
-    val location: String
+    val location: String,
+    val name: String,
+    val fightType: String,
+    val tournament: Tournament
+)
+
+data class Tournament(
+    val name: String,
 )
 

@@ -8,9 +8,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/fnc"
+        android:icon="@drawable/mma_logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/fnc"
+        android:roundIcon="@drawable/mma_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.MMA_application"
         tools:targetApi="31">
